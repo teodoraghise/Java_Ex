@@ -1,0 +1,30 @@
+ On your local system: define a database ("booking"), create the following tables:
+
+"accommodation" with the following columns:
+
+    -- id: int (primary key)
+    -- type: varchar (32)
+    -- bed_type: varchar (32)
+    -- max_guests: int
+    -- description: varchar (512)
+
+"room_fair" with the following columns:
+    -- id: int (primary key)
+    -- value: double
+    -- season: varchar (32)
+
+"accommodation_to_room_fair_relation" with the following columns:
+    -- id: int (primary key)
+    -- id_accommodation: int (foreign key of accommodation)
+    -- id_room_fair: int (foreign key of room fair)
+
+-> write a unit test which inserts data in the tables using the prepared statement, taking into account the accommodation_to_room_fair_relation data
+-> write a unit test which interrogates the database and print using the LOGGER the price for each room in the database
+
+Observations:
+
+- respect the table, column names and data types
+
+- the "accommodation_to_room_fair_relation" table is a link table between rooms and prices and you will have to use the JOIN in query to interrogate
+
+- to insert in the database, recommendation: PreparedStatement.executeUpdate()
